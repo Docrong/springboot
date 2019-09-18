@@ -23,15 +23,15 @@ import java.util.Map;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.work.ggr.ds2.repository2",
-entityManagerFactoryRef = "entityManagerFactorySecond",
-transactionManagerRef = "transactionManagerSecond")
+        entityManagerFactoryRef = "entityManagerFactorySecond",
+        transactionManagerRef = "transactionManagerSecond")
 public class RepositoryConfigSecond {
     @Autowired
     @Qualifier("mysqlDataSource2")
     private DataSource dataSource;
 
     @Bean("entityManagerFactorySecond")
-    public EntityManagerFactory entityManagerFactory(){
+    public EntityManagerFactory entityManagerFactory() {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(true);
         vendorAdapter.setGenerateDdl(true);
@@ -43,9 +43,9 @@ public class RepositoryConfigSecond {
 
 
         Map<String, Object> jpaProperties = new HashMap<String, Object>();
-        jpaProperties.put("hibernate.ejb.naming_strategy","org.hibernate.cfg.ImprovedNamingStrategy");
-        jpaProperties.put("hibernate.jdbc.batch_size",50);
-        jpaProperties.put("hibernate.show_sql",true);
+        jpaProperties.put("hibernate.ejb.naming_strategy", "org.hibernate.cfg.ImprovedNamingStrategy");
+        jpaProperties.put("hibernate.jdbc.batch_size", 50);
+        jpaProperties.put("hibernate.show_sql", true);
 
         factory.setJpaPropertyMap(jpaProperties);
         factory.afterPropertiesSet();

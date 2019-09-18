@@ -12,8 +12,9 @@ import java.util.Optional;
  * @date : 2019/9/6 16:18
  */
 @Repository("personRepository")
-public interface PersonRepository extends JpaRepository<Person,Integer> {
+public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     Person findById(String id);
+
     List<Person> findByUsernameAndAddress(String username, String address);
 }

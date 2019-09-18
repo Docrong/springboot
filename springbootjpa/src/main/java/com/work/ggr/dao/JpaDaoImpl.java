@@ -24,7 +24,6 @@ public class JpaDaoImpl {
     private EntityManagerFactory entityManagerFactory;
 
 
-
     public Map testMysql1(Map map) {
         System.out.println("testMysql1():" + entityManagerFactory);
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -39,7 +38,7 @@ public class JpaDaoImpl {
         p.setPhone("12345678901");
         p.setRemark("hello");
         p.setUsername(new Date().toString());
-        Person p2=entityManager.find(Person.class,"11");
+        Person p2 = entityManager.find(Person.class, "11");
         System.out.println(p2);
 //        entityManager.remove(p2);
 //        entityManager.flush();

@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 
 /**
  * 配置DataSource连接数据库
+ *
  * @author : gr
  * @date : 2019/8/28 15:00
  */
@@ -26,7 +27,7 @@ public class DataSourceConfig {
     @Bean(name = "mysqlDataSource")
     public DataSource getDataSource() {
         System.out.println("==== init DS1 ====");
-        DruidDataSource dataSource=  new DruidDataSource();
+        DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(mysqlConfig.getUrl());
 //      获取自定义配置文件datasource.properties中的数据,git忽略提交,这样不用每次更改配置文件
 //      dataSource.setUrl(env.getProperty("spring.datasource.url"));
@@ -36,6 +37,7 @@ public class DataSourceConfig {
         dataSource.setName("mysqlDataSource");
         return dataSource;
     }
+
     @Bean(name = "JdbcTemplate1")
     public JdbcTemplate JdbcTemplate1(
             @Qualifier("mysqlDataSource") DataSource dataSource) {
@@ -44,9 +46,9 @@ public class DataSourceConfig {
 
 
     @Bean(name = "mysqlDataSource2")
-    public DataSource getDataSource2(){
+    public DataSource getDataSource2() {
         System.out.println("==== init DS2 ====");
-        DruidDataSource dataSource=  new DruidDataSource();
+        DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(mysqlConfig.getUrl2());
         dataSource.setUsername(env.getProperty("spring.datasource2.username"));
         dataSource.setPassword(env.getProperty("spring.datasource2.password"));

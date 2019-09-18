@@ -29,7 +29,7 @@ public class PersonServiceImpl {
     @Autowired
     private JdbcTemplateDaoImpl jdbcTemplateDao;
 
-@Transactional(value = "transactionManagerMain")
+    @Transactional(value = "transactionManagerMain")
     public Map testJpa(Map maptj) {
         System.out.println("dao:" + jpaDao);
         jpaDao.testMysql1(maptj);
@@ -47,9 +47,10 @@ public class PersonServiceImpl {
         return null;
     }
 
-    public Map testJdbcTemplate(Map maptj){
+    public Map testJdbcTemplate(Map maptj) {
         System.out.println("test JDBC");
-        jdbcTemplateDao.queryMysql1();;
+        jdbcTemplateDao.queryMysql1();
+        ;
         jdbcTemplateDao.queryMysql2();
 //        jdbcTemplateDao.insertMysql1();
 //        jdbcTemplateDao.insertMysql2();
@@ -58,9 +59,10 @@ public class PersonServiceImpl {
 
 
     @Autowired
-    @Qualifier(value="personRepository")
+    @Qualifier(value = "personRepository")
     private PersonRepository personRepository;
-    public Map testJpaRepository(Map maptj){
+
+    public Map testJpaRepository(Map maptj) {
         System.out.println(personRepository);
 //        Person p=personRepository.findById("2");
 //        System.out.println(p);
@@ -70,7 +72,7 @@ public class PersonServiceImpl {
 //        System.out.println("(^・ω・^ )( ^・ω・^)(^・ω・^ )( ^・ω・^)");
 //        p.setPhone(new Date().toString());
 //        personRepository.save(p);
-        Person p2=new Person();
+        Person p2 = new Person();
 
         p2.setPhone("数据库1");
         p2.setUsername("ggr");
