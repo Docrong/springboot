@@ -1,12 +1,9 @@
 package com.work.ggr.webapp.action;
 
-import com.work.ggr.consumer.KafkaConsumer;
 import com.work.ggr.producer.KafkaProducer;
 import kafka.admin.AdminUtils;
 import kafka.utils.ZkUtils;
-import org.apache.kafka.common.requests.MetadataResponse;
 import org.apache.kafka.common.security.JaasUtils;
-import org.apache.zookeeper.ZKUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,8 +23,8 @@ public class KafkaController {
 
     @Autowired
     private KafkaProducer producer;
-    @Autowired
-    private KafkaConsumer consumer;
+//    @Autowired
+//    private KafkaConsumer consumer;
 
     @RequestMapping("/test")
     public String test() {
