@@ -22,11 +22,12 @@ public class KafkaProducer {
     private static Gson gson = new GsonBuilder().create();
 
     //发送消息方法
-    public String  send() {
+    public String send() {
         Message message = new Message();
-        message.setId("KFK_"+System.currentTimeMillis());
+        message.setId("KFK_" + System.currentTimeMillis());
         message.setMsg(UUID.randomUUID().toString());
         message.setSendTime(new Date().toString());
+        System.out.println("kafka发送信息");
         kafkaTemplate.send("test", gson.toJson(message));
         return gson.toJson(message);
     }
