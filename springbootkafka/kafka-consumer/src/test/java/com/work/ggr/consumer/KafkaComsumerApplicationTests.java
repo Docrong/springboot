@@ -1,4 +1,4 @@
-package com.work.ggr.comsumer;
+package com.work.ggr.consumer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

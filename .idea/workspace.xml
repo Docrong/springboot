@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/springbootjpa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/config/DataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/config/DataSourceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/config/RepositoryConfigSecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/config/RepositoryConfigSecond.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/dao/JpaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/dao/JpaDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds1/repository/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds1/repository/PersonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds1/service/PersonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds1/service/PersonServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds2/repository2/PersonRepository2.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds2/repository2/PersonRepository2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/resources/application-dev.properties" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\.m2\repository" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="dedicatedModuleDir" value="G:\java\springboot" />
+        <option name="lookForNested" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Qwn6W7aoLdqhdpYvGiCpEPtOLw" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SpringbootjpaApplication">
+    <configuration name="SpringbookkafkaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springbookkafka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.work.ggr.SpringbookkafkaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringbootjpaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springbootjpa" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.work.ggr.SpringbootjpaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringbootkafkaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springbootkafka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.work.ggr.SpringbootkafkaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="" />
+      <created>1568690350886</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568690350886</updated>
+      <workItem from="1568690352928" duration="1195000" />
+      <workItem from="1568700693240" duration="91000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

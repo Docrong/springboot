@@ -1,4 +1,4 @@
-package com.work.ggr.kafkacomsumer;
+package com.work.ggr.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
