@@ -11,7 +11,7 @@ import java.util.Optional;
  * @date : 2019/9/19 17:07
  */
 @Component
-public class KafkaConsumer {
+public class ConsumerMethod {
     @KafkaListener(topics = {"test"})
     public void listen(ConsumerRecord<?, ?> record) {
 
