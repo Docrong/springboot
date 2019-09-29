@@ -3,22 +3,18 @@ package com.work.ggr.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.CacheManager;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
-import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration;
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import redis.clients.jedis.JedisPoolConfig;
+import org.springframework.util.ObjectUtils;
 
 import java.time.Duration;
 
@@ -28,15 +24,51 @@ import java.time.Duration;
  */
 @Configuration
 public class RedisConfiguration {
-
-
+    String hostName = "localhost";
+    int port = 6379;
+    int database = 0;
+    String password = "123456";
+    int maxActive = 8;
+    int maxIdle = 8;
+    int minIdle = 1;
+    int maxWait = -1;
+    int timeout = 3000;
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
+    public RedisTemplate redisTemplate() {
+        RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
+        configuration.setHostName(this.hostName);
+        configuration.setPort(this.port);
+        configuration.setDatabase(this.database);
+        if (!ObjectUtils.isEmpty(this.password)) {
+            RedisPassword redisPassword = RedisPassword.of(this.password);
+            configuration.setPassword(redisPassword);
+        }
+
+        /* ========= 连接池通用配置 ========= */
+        GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
+        genericObjectPoolConfig.setMaxTotal(this.maxActive);
+        genericObjectPoolConfig.setMinIdle(this.minIdle);
+        genericObjectPoolConfig.setMaxIdle(this.maxIdle);
+        genericObjectPoolConfig.setMaxWaitMillis(this.maxWait);
+        LettucePoolingClientConfiguration.LettucePoolingClientConfigurationBuilder builder = LettucePoolingClientConfiguration.builder();
+        builder.poolConfig(genericObjectPoolConfig);
+        builder.commandTimeout(Duration.ofSeconds(this.timeout));
+        LettuceConnectionFactory connectionFactory = new LettuceConnectionFactory(configuration, builder.build());
+        connectionFactory.afterPropertiesSet();
+
+        /* ========= 创建 template ========= */
+        return createRedisTemplate(connectionFactory);
+
+    }
+
+
+    public RedisTemplate<String, Object> createRedisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         System.out.println("****************************");
         System.out.println(factory);
         System.out.println("****************************");
+
         // 配置连接工厂
         template.setConnectionFactory(factory);
         //使用Jackson2JsonRedisSerializer来序列化和反序列化redis的value值（默认使用JDK的序列化方式）
@@ -57,6 +89,7 @@ public class RedisConfiguration {
         template.afterPropertiesSet();
         return template;
     }
+
     /**
      * 对hash类型的数据操作
      *
