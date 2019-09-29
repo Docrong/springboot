@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/springbootjpa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/config/DataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/config/DataSourceConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/config/RepositoryConfigSecond.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/config/RepositoryConfigSecond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/dao/JpaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/dao/JpaDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds1/repository/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds1/repository/PersonRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds1/service/PersonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds1/service/PersonServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds2/repository2/PersonRepository2.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/java/com/work/ggr/ds2/repository2/PersonRepository2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springbootjpa/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/springbootjpa/src/main/resources/application-dev.properties" afterDir="false" />
-    </list>
+    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +83,8 @@
       <updated>1568690350886</updated>
       <workItem from="1568690352928" duration="1195000" />
       <workItem from="1568700693240" duration="91000" />
+      <workItem from="1569291712564" duration="720000" />
+      <workItem from="1569292475904" duration="8000" />
     </task>
     <servers />
   </component>
