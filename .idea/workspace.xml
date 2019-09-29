@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/springbootredis/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springbootredis/src/main/resources/bootstrap.properties" afterDir="false" />
-    </list>
+    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +116,7 @@
       <workItem from="1569292475904" duration="8000" />
       <workItem from="1569763964664" duration="1862000" />
       <workItem from="1569767791357" duration="1866000" />
-      <workItem from="1569769759174" duration="2437000" />
+      <workItem from="1569769759174" duration="3724000" />
     </task>
     <servers />
   </component>
