@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/springbootactiviti/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springbootactiviti/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/resources/processes/test.BPMN" beforeDir="false" afterPath="$PROJECT_DIR$/springbootactiviti/src/main/resources/processes/test.BPMN" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/test/java/com/work/ggr/CreateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootactiviti/src/test/java/com/work/ggr/ActivitiTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,8 +62,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CreateTest.initTable">
-    <configuration name="CreateTest.initTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ActivitiTest.initTable">
+    <configuration name="ActivitiTest.initTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="springbootactiviti" />
       <extension name="coverage">
         <pattern>
@@ -73,7 +72,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.work.ggr" />
-      <option name="MAIN_CLASS_NAME" value="com.work.ggr.CreateTest" />
+      <option name="MAIN_CLASS_NAME" value="com.work.ggr.ActivitiTest" />
       <option name="METHOD_NAME" value="initTable" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -117,7 +116,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CreateTest.initTable" />
+        <item itemvalue="JUnit.ActivitiTest.initTable" />
       </list>
     </recent_temporary>
   </component>
@@ -149,7 +148,8 @@
       <workItem from="1569767791357" duration="1866000" />
       <workItem from="1569769759174" duration="3724000" />
       <workItem from="1570427658393" duration="157000" />
-      <workItem from="1570803804742" duration="1774000" />
+      <workItem from="1570803804742" duration="2435000" />
+      <workItem from="1570810559885" duration="221000" />
     </task>
     <servers />
   </component>
