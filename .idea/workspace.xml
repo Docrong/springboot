@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="" />
+    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springbootactiviti/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/resources/processes/test.BPMN" beforeDir="false" afterPath="$PROJECT_DIR$/springbootactiviti/src/main/resources/processes/test.BPMN" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +32,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/springbootjpa" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/springbootactiviti" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -60,10 +63,33 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SpringbootjpaApplication">
+  <component name="RunManager" selected="JUnit.CreateTest.initTable">
+    <configuration name="CreateTest.initTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springbootactiviti" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.work.ggr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.work.ggr" />
+      <option name="MAIN_CLASS_NAME" value="com.work.ggr.CreateTest" />
+      <option name="METHOD_NAME" value="initTable" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringbookkafkaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="springbookkafka" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.work.ggr.SpringbookkafkaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringbootactivitiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springbootactiviti" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.work.ggr.SpringbootactivitiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -89,6 +115,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CreateTest.initTable" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -117,6 +148,8 @@
       <workItem from="1569763964664" duration="1862000" />
       <workItem from="1569767791357" duration="1866000" />
       <workItem from="1569769759174" duration="3724000" />
+      <workItem from="1570427658393" duration="157000" />
+      <workItem from="1570803804742" duration="1774000" />
     </task>
     <servers />
   </component>
