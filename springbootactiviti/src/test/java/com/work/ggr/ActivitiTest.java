@@ -4,7 +4,12 @@ import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.junit.Test;
 
-public class CreateTest {
+public class ActivitiTest {
+
+	@Test
+	public void test() {
+		System.out.println("test");
+	}
 
 	@Test
 	public void initTable() {
@@ -20,10 +25,5 @@ public class CreateTest {
 
 		ProcessEngine engine=engineConfiguration.buildProcessEngine();
 		System.out.println(engine);
-	}
-	
-	@Test
-	public void test() {
-		System.out.println("test");
 	}
 }
