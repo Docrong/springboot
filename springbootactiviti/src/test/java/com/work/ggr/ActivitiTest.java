@@ -2,6 +2,8 @@ package com.work.ggr;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
+import org.activiti.engine.ProcessEngines;
+import org.activiti.engine.repository.Deployment;
 import org.junit.Test;
 
 public class ActivitiTest {
@@ -23,7 +25,17 @@ public class ActivitiTest {
 
 		engineConfiguration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
 
-		ProcessEngine engine=engineConfiguration.buildProcessEngine();
+		ProcessEngine engine = engineConfiguration.buildProcessEngine();
 		System.out.println(engine);
+		System.out.println(engine);
+		Deployment deployment = engine.getRepositoryService().createDeployment()
+				.addClasspathResource("test.BPMN").addClasspathResource("test.png").deploy();
+		System.out.println(deployment.getId() + "--" + deployment.getName());
 	}
+
+	@Test
+	public void delployFlow() {
+
+	}
+
 }
