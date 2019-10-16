@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/test/java/com/work/ggr/CreateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/springbootactiviti/src/test/java/com/work/ggr/ActivitiTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,8 +147,18 @@
       <workItem from="1569769759174" duration="3724000" />
       <workItem from="1570427658393" duration="157000" />
       <workItem from="1570803804742" duration="2435000" />
-      <workItem from="1570810559885" duration="221000" />
+      <workItem from="1570810559885" duration="298000" />
+      <workItem from="1570894397981" duration="995000" />
+      <workItem from="1571144410637" duration="113000" />
     </task>
+    <task id="LOCAL-00001" summary="重构项目">
+      <created>1570810794309</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1570810794310</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,5 +176,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="重构项目" />
+    <option name="LAST_COMMIT_MESSAGE" value="重构项目" />
   </component>
 </project>
