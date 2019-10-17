@@ -55,24 +55,10 @@
 			<version>1.1.20</version>
 		</dependency>
 <!--		添加activiti流程引擎-->
-		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-spring</artifactId>
-			<version>6.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-spring-boot-starter-basic</artifactId>
-			<version>6.0.0</version>
-		</dependency>
 	   <dependency>
- 
    <groupId>org.activiti</groupId>
- 
    <artifactId>activiti-engine</artifactId>
- 
    <version>6.0.0</version>
- 
    </dependency>
 	
 

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="" />
+    <list default="true" id="84004237-94e0-4109-bd7a-2a8214a520ad" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/java/com/work/ggr/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/java/com/work/ggr/App2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/java/com/work/ggr/ConfirmComplete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/java/com/work/ggr/DocReceiveDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/java/com/work/ggr/MyTaksListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/java/com/work/ggr/TestJavaDelegate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/resources/MultiTask.bpmn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/resources/MultiTask2.bpmn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/resources/docReceive.bpmn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springbootactiviti/src/main/resources/log4j.properties" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +161,7 @@
       <workItem from="1570810559885" duration="298000" />
       <workItem from="1570894397981" duration="995000" />
       <workItem from="1571144410637" duration="113000" />
+      <workItem from="1571320925759" duration="396000" />
     </task>
     <task id="LOCAL-00001" summary="重构项目">
       <created>1570810794309</created>
