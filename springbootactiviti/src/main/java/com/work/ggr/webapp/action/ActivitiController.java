@@ -1,4 +1,4 @@
-package com.work.ggr.controller;
+package com.work.ggr.webapp.action;
 
 
 
