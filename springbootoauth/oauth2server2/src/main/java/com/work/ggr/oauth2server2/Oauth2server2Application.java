@@ -1,13 +1,13 @@
-package com.work.ggr;
+package com.work.ggr.oauth2server2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Oauth2clientApplication {
+public class Oauth2server2Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Oauth2clientApplication.class, args);
+        SpringApplication.run(Oauth2server2Application.class, args);
     }
 
 }
