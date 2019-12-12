@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>企业查询系统</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+
+</head>
+<body>
+<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+<ul class="layui-nav layui-bg-green" lay-filter="">
+    <li class="layui-nav-item"><a href="">详情/添加</a></li>
+</ul>
+<br>
+<div class="layui-main site-inline">
+
+    <form class="layui-form" action="/save">
+        <input class="layui-input" name="id" th:value="${object.id }" type="text">
+        <div class="layui-form-item">
+            <label class="layui-form-label">企业名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name"  placeholder="请输入名称"
+                                                    autocomplete="off" class="layui-input" th:value="${object.name}">
+            </div>
+            <label class="layui-form-label">企业归属地</label>
+            <div class="layui-input-inline">
+                <input type="text" name="area"  placeholder="请输入名称"
+                       autocomplete="off" class="layui-input" th:value="${object.area}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">注册资本</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="registerMoney" th:value="${object.registerMoney}">
+            </div>
+            <label class="layui-form-label">企业规模</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="size" th:value="${object.size}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">上市情况</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="listedSituation" th:value="${object.listedSituation}">
+            </div>
+            <label class="layui-form-label">融资情况</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="financingSituation" th:value="${object.financingSituation}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">经营范围</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" name="businessScope" th:value="${object.businessScope}">
+            </div>
+            <label class="layui-form-label">经营状态</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="businessStatus" th:value="${object.businessStatus}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">法人名称</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="bossName" th:value="${object.bossName}">
+            </div>
+            <label class="layui-form-label">信用评分</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="creditScore" th:value="${object.creditScore}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            // return false;
+        });
+    });
+</script>
+</body>
+</html>

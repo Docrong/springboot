@@ -5,31 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>企业查询系统</title>
     <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
-    <link rel="stylesheet" th:href="@{/layui/layui.js}">
 </head>
 <body>
-<script>
-    layui.use('table', function(){
-        var table = layui.table;
+<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
 
-        table.render({
-            elem: '#test'
-            ,url:'/demo/table/user/'
-            ,cols: [[
-                {field:'id', width:80, title: 'ID', sort: true}
-                ,{field:'username', width:80, title: '用户名'}
-                ,{field:'sex', width:80, title: '性别', sort: true}
-                ,{field:'city', width:80, title: '城市'}
-                ,{field:'sign', title: '签名', minWidth: 150}
-                ,{field:'experience', width:80, title: '积分', sort: true}
-                ,{field:'score', width:80, title: '评分', sort: true}
-                ,{field:'classify', width:80, title: '职业'}
-                ,{field:'wealth', width:135, title: '财富', sort: true}
-            ]]
-            ,page: true
+<ul class="layui-nav layui-bg-green" lay-filter="">
+    <li class="layui-nav-item"><a href="">查询列表</a></li>
+</ul>
+
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function () {
+        var element = layui.element;
+
+        //…
+    });
+    function addCompany() {
+        console.log(123);
+        window.open("/add");
+    }
+</script>
+<br>
+<div class="layui-main site-inline">
+
+
+<form class="layui-form" action="/list">
+    <div class="layui-form-item">
+        <div class="layui-row">
+            <div class="layui-col-md6 grid-demo">
+                <label class="layui-form-label">企业名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="name"  placeholder="请输入名称"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-col-md6">
+                <label class="layui-form-label">企业归属地</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="area"  placeholder="请输入企业归属地"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            <button class="layui-btn" onclick="addCompany()">新增</button>
+        </div>
+    </div>
+</form>
+
+
+    <table class="layui-table" lay-data="{height:315, url:'/demo/table/user/', page:true, id:'test'}" lay-filter="test">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id', width:80, sort: true}">ID</th>
+            <th lay-data="{field:'username', width:80}">用户名</th>
+            <th lay-data="{field:'sex', width:80, sort: true}">性别</th>
+            <th lay-data="{field:'city'}">城市</th>
+            <th lay-data="{field:'sign'}">签名</th>
+            <th lay-data="{field:'experience', sort: true}">积分</th>
+            <th lay-data="{field:'score', sort: true}">评分</th>
+            <th lay-data="{field:'classify'}">职业</th>
+            <th lay-data="{field:'wealth', sort: true}">财富</th>
+        </tr>
+        </thead>
+    </table>
+
+
+</div>
+<script>
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            //layer.msg(JSON.stringify(data.field));
+           // return false;
         });
     });
+
+
 </script>
+<br>
+
 
 
 </body>
