@@ -1,6 +1,7 @@
 package eoms.com.cn.service;
 
 import eoms.com.cn.model.Company;
+import eoms.com.cn.repository.CompanyDao;
 import eoms.com.cn.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,11 @@ public class CompanyService {
 	public Company findById(String id) {
 		Company company=repository.findById(id);
 		return company;
+	}
+
+	@Autowired
+	private CompanyDao companyDao;
+	public Map getCompanyList(Map maptj){
+		return companyDao.getCompanyList(maptj);
 	}
 }

@@ -29,7 +29,7 @@
 <div class="layui-main site-inline">
 
 
-<form class="layui-form" action="/list">
+<form class="layui-form" action="/data">
     <div class="layui-form-item">
         <div class="layui-row">
             <div class="layui-col-md6 grid-demo">
@@ -60,25 +60,12 @@
 </form>
 
 
-    <table class="layui-table" lay-data="{height:315, url:'/demo/table/user/', page:true, id:'test'}" lay-filter="test">
-        <thead>
-        <tr>
-            <th lay-data="{field:'id', width:80, sort: true}">ID</th>
-            <th lay-data="{field:'username', width:80}">用户名</th>
-            <th lay-data="{field:'sex', width:80, sort: true}">性别</th>
-            <th lay-data="{field:'city'}">城市</th>
-            <th lay-data="{field:'sign'}">签名</th>
-            <th lay-data="{field:'experience', sort: true}">积分</th>
-            <th lay-data="{field:'score', sort: true}">评分</th>
-            <th lay-data="{field:'classify'}">职业</th>
-            <th lay-data="{field:'wealth', sort: true}">财富</th>
-        </tr>
-        </thead>
-    </table>
+    <table id="datalist" lay-filter="test" ></table>
+
 
 
 </div>
-<script>
+<script th:inline="none">
     //Demo
     layui.use('form', function () {
         var form = layui.form;
@@ -88,6 +75,32 @@
             //layer.msg(JSON.stringify(data.field));
            // return false;
         });
+    });
+    layui.use('table', function(){
+        var table = layui.table;
+
+        //第一个实例
+        table.render({
+            elem: '#datalist'
+            // ,height: 312 //不填的话高度自适应
+            ,url: '/data' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'name', title: '企业名称',   fixed: 'left'}
+                ,{field: 'area', title: '企业归属地', }
+                ,{field: 'registerMoney', title: '注册资本',  sort: true}
+                ,{field: 'size', title: '企业规模', sort:true}
+                ,{field: 'listedSituation', title: '上市情况'}
+                ,{field: 'financingSituation', title: '融资情况',  }
+                ,{field: 'businessScope', title: '经营范围'}
+                ,{field: 'businessStatus', title: '经营状态'}
+                ,{field: 'bossName', title: '法人名称'}
+                ,{field: 'creditScore', title: '信用评分',  sort: true}
+                ,{field: 'id', title: '信用评分',  sort: true}
+
+            ]]
+        });
+
     });
 
 
