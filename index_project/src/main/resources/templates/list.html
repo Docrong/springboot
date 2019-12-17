@@ -20,6 +20,7 @@
 
         //…
     });
+
     function addCompany() {
         console.log(123);
         window.open("/add");
@@ -29,84 +30,147 @@
 <div class="layui-main site-inline">
 
 
-<form class="layui-form" action="/data">
-    <div class="layui-form-item">
-        <div class="layui-row">
-            <div class="layui-col-md6 grid-demo">
-                <label class="layui-form-label">企业名称</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="name"  placeholder="请输入名称"
-                           autocomplete="off" class="layui-input">
+    <form class="layui-form" action="/data">
+        <div class="layui-form-item">
+            <div class="layui-row">
+                <div class="layui-col-md6 grid-demo">
+                    <label class="layui-form-label">企业名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="name" placeholder="请输入名称"
+                               autocomplete="off" class="layui-input">
+                    </div>
                 </div>
-            </div>
 
-            <div class="layui-col-md6">
-                <label class="layui-form-label">企业归属地</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="area"  placeholder="请输入企业归属地"
-                           autocomplete="off" class="layui-input">
+                <div class="layui-col-md6">
+                    <label class="layui-form-label">企业归属地</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="area" placeholder="请输入企业归属地"
+                               autocomplete="off" class="layui-input">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="layui-form-item">
-        <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            <button class="layui-btn" onclick="addCompany()">新增</button>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                <button class="layui-btn" onclick="addCompany()">新增</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 
 
-    <table id="datalist" lay-filter="test" ></table>
-
-
+    <!--    <table id="datalist" lay-filter="test"></table>-->
 
 </div>
-<script th:inline="none">
-    //Demo
-    layui.use('form', function () {
-        var form = layui.form;
+<!--&lt;!&ndash;<script th:inline="none">-->
+<!--    //Demo-->
+<!--    layui.use('form', function () {-->
+<!--        var form = layui.form;-->
 
-        //监听提交
-        form.on('submit(formDemo)', function (data) {
-            //layer.msg(JSON.stringify(data.field));
-           // return false;
-        });
-    });
-    layui.use('table', function(){
-        var table = layui.table;
+<!--        //监听提交-->
+<!--        form.on('submit(formDemo)', function (data) {-->
+<!--            //layer.msg(JSON.stringify(data.field));-->
+<!--           // return false;-->
+<!--        });-->
+<!--    });-->
+<!--    layui.use('table', function(){-->
+<!--        var table = layui.table;-->
 
-        //第一个实例
-        table.render({
-            elem: '#datalist'
-            // ,height: 312 //不填的话高度自适应
-            ,url: '/data' //数据接口
-            ,page: true //开启分页
-            ,cols: [[ //表头
-                {field: 'name', title: '企业名称',   fixed: 'left'}
-                ,{field: 'area', title: '企业归属地', }
-                ,{field: 'registerMoney', title: '注册资本',  sort: true}
-                ,{field: 'size', title: '企业规模', sort:true}
-                ,{field: 'listedSituation', title: '上市情况'}
-                ,{field: 'financingSituation', title: '融资情况',  }
-                ,{field: 'businessScope', title: '经营范围'}
-                ,{field: 'businessStatus', title: '经营状态'}
-                ,{field: 'bossName', title: '法人名称'}
-                ,{field: 'creditScore', title: '信用评分',  sort: true}
-                ,{field: 'id', title: '信用评分',  sort: true}
+<!--        //第一个实例-->
+<!--        table.render({-->
+<!--            elem: '#datalist'-->
+<!--            // ,height: 312 //不填的话高度自适应-->
+<!--            ,url: '/data' //数据接口-->
+<!--            ,page: true //开启分页-->
 
-            ]]
-        });
+<!--            ,cols: [[ //表头-->
+<!--                {field: 'name', title: '企业名称',   fixed: 'left'}-->
+<!--                ,{field: 'area', title: '企业归属地', }-->
+<!--                ,{field: 'registerMoney', title: '注册资本',  sort: true}-->
+<!--                ,{field: 'size', title: '企业规模', sort:true}-->
+<!--                ,{field: 'listedSituation', title: '上市情况'}-->
+<!--                ,{field: 'financingSituation', title: '融资情况',  }-->
+<!--                ,{field: 'businessScope', title: '经营范围'}-->
+<!--                ,{field: 'businessStatus', title: '经营状态'}-->
+<!--                ,{field: 'bossName', title: '法人名称'}-->
+<!--                ,{field: 'creditScore', title: '信用评分',  sort: true}-->
+<!--                ,{field: 'id', title: '信用评分',  sort: true}-->
 
-    });
+<!--            ]]-->
+<!--        });-->
 
 
-</script>
+<!--    });-->
+
+
+<!--</script>&ndash;&gt;-->
 <br>
 
+<div class="demoTable">
+    搜索ID：
+    <div class="layui-inline">
+        <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+    </div>
+    <button class="layui-btn" data-type="reload">搜索</button>
+</div>
+
+<table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+
+
+<!--<script src="//res.layui.com/layui/dist/layui.js" charset="utf-8"></script>-->
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script th:inline="none">
+    layui.use('table', function () {
+        var table = layui.table;
+
+        //方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            , url: '/data'
+            , cols: [[
+                {field: 'name', title: '企业名称', fixed: 'left'}
+                , {field: 'area', title: '企业归属地',}
+                , {field: 'registerMoney', title: '注册资本', sort: true}
+                , {field: 'size', title: '企业规模', sort: true}
+                , {field: 'listedSituation', title: '上市情况'}
+                , {field: 'financingSituation', title: '融资情况',}
+                , {field: 'businessScope', title: '经营范围'}
+                , {field: 'businessStatus', title: '经营状态'}
+                , {field: 'bossName', title: '法人名称'}
+                , {field: 'creditScore', title: '信用评分', sort: true}
+                , {field: 'id', title: '信用评分', sort: true}
+            ]]
+            , id: 'testReload'
+            , page: true
+            //, height: 310
+        });
+
+        var $ = layui.$, active = {
+            reload: function () {
+                var demoReload = $('#demoReload');
+
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        key: {
+                            id: demoReload.val()
+                        }
+                    }
+                }, 'data');
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>
 
 
 </body>

@@ -28,8 +28,9 @@ public class DataController {
 		System.out.println(request.getParameter("page"));
 		System.out.println(request.getParameter("limit"));//分页
 
-		System.out.println(request.getParameter("name"));
-		System.out.println(request.getParameter("area"));
+		System.out.println("name->"+request.getParameter("name"));
+		System.out.println("area->"+request.getParameter("area"));
+		System.out.println("id->"+request.getParameter("id"));
 		String str="{\"code\":0,\"msg\":\"\",\"count\":100," +
 				"\"data\":[{\"id\":10000,\"username\":\"user-0\"," +
 				"\"sex\":\"女\",\"city\":\"城市-0\",\"sign\":\"签名-0\"," +
