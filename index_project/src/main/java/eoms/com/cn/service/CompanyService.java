@@ -32,6 +32,17 @@ public class CompanyService {
 		return map;
 	}
 
+	public String delCompany(Company company) {
+		try {
+			repository.delete(company);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
+		return "success";
+
+	}
+
 	public Company findById(String id) {
 		Company company=repository.findById(id);
 		return company;

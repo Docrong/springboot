@@ -8,7 +8,6 @@
 </head>
 <body>
 <script type="text/javascript" th:src="@{/layui/layui.js}"></script>
-<script type="text/javascript" th:src="@{/jquery/jquery-3.3.1.js}"></script>
 
 <ul class="layui-nav layui-bg-green" lay-filter="">
     <li class="layui-nav-item"><a href="">查询列表</a></li>
@@ -65,20 +64,58 @@
     <!--    <table id="datalist" lay-filter="test"></table>-->
 
 </div>
+<!--&lt;!&ndash;<script th:inline="none">-->
+<!--    //Demo-->
+<!--    layui.use('form', function () {-->
+<!--        var form = layui.form;-->
+
+<!--        //监听提交-->
+<!--        form.on('submit(formDemo)', function (data) {-->
+<!--            //layer.msg(JSON.stringify(data.field));-->
+<!--           // return false;-->
+<!--        });-->
+<!--    });-->
+<!--    layui.use('table', function(){-->
+<!--        var table = layui.table;-->
+
+<!--        //第一个实例-->
+<!--        table.render({-->
+<!--            elem: '#datalist'-->
+<!--            // ,height: 312 //不填的话高度自适应-->
+<!--            ,url: '/data' //数据接口-->
+<!--            ,page: true //开启分页-->
+
+<!--            ,cols: [[ //表头-->
+<!--                {field: 'name', title: '企业名称',   fixed: 'left'}-->
+<!--                ,{field: 'area', title: '企业归属地', }-->
+<!--                ,{field: 'registerMoney', title: '注册资本',  sort: true}-->
+<!--                ,{field: 'size', title: '企业规模', sort:true}-->
+<!--                ,{field: 'listedSituation', title: '上市情况'}-->
+<!--                ,{field: 'financingSituation', title: '融资情况',  }-->
+<!--                ,{field: 'businessScope', title: '经营范围'}-->
+<!--                ,{field: 'businessStatus', title: '经营状态'}-->
+<!--                ,{field: 'bossName', title: '法人名称'}-->
+<!--                ,{field: 'creditScore', title: '信用评分',  sort: true}-->
+<!--                ,{field: 'id', title: '信用评分',  sort: true}-->
+
+<!--            ]]-->
+<!--        });-->
+
+
+<!--    });-->
+
+
+<!--</script>&ndash;&gt;-->
 <br>
 
 <div class="demoTable">
-    企业名称
+    搜索ID：
     <div class="layui-inline">
         <input class="layui-input" name="id" id="demoReload" autocomplete="off">
     </div>
     <button class="layui-btn" data-type="reload">搜索</button>
 </div>
 
-<script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-</script>
 <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
 
 
@@ -92,7 +129,6 @@
         table.render({
             elem: '#LAY_table_user'
             , url: '/data'
-            //,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
             , cols: [[
                 {field: 'name', title: '企业名称', fixed: 'left'}
                 , {field: 'area', title: '企业归属地',}
@@ -104,19 +140,17 @@
                 , {field: 'businessStatus', title: '经营状态'}
                 , {field: 'bossName', title: '法人名称'}
                 , {field: 'creditScore', title: '信用评分', sort: true}
-                , {field: 'id', title: 'ID', hide:true}
-                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+                , {field: 'id', title: '信用评分', sort: true}
             ]]
             , id: 'testReload'
             , page: true
             //, height: 310
-
         });
 
         var $ = layui.$, active = {
             reload: function () {
                 var demoReload = $('#demoReload');
-                console.log(demoReload);
+
                 //执行重载
                 table.reload('testReload', {
                     page: {
@@ -125,8 +159,7 @@
                     , where: {
                         key: {
                             id: demoReload.val()
-                        },
-                        id:1
+                        }
                     }
                 }, 'data');
             }
@@ -136,37 +169,7 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-        //监听工具条
-        table.on('tool(user)', function(obj){
-            var data = obj.data;
-            if(obj.event === 'del'){
-                layer.confirm('真的删除行么', function(index){
-                    obj.del();
-                    layer.close(index);
-                    del(data.id);
-                });
-            } else if(obj.event === 'edit'){
-                //console.log(data.id);
-                edit(data.id);
-               // layer.alert('编辑行：<br>'+ JSON.stringify(data))
-            }
-        });
     });
-function edit(id) {
-    window.open('/add?id=' + id);
-}
-function del(id) {
-    $.ajax({
-        type: 'GET',
-        url:'/del',
-        data:{id: id},
-        success:function (data) {
-            console.log(data);
-
-        }
-    });
-
-}
 </script>
 
 
