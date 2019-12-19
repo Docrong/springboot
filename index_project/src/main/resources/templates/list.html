@@ -12,6 +12,8 @@
 
 <ul class="layui-nav layui-bg-green" lay-filter="">
     <li class="layui-nav-item"><a href="">查询列表</a></li>
+    <li class="layui-nav-item"><a href="/add">新增</a></li>
+
 </ul>
 
 <script>
@@ -31,38 +33,9 @@
 <div class="layui-main site-inline">
 
 
-    <form class="layui-form" action="/data">
-        <div class="layui-form-item">
-            <div class="layui-row">
-                <div class="layui-col-md6 grid-demo">
-                    <label class="layui-form-label">企业名称</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="name" placeholder="请输入名称"
-                               autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-col-md6">
-                    <label class="layui-form-label">企业归属地</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="area" placeholder="请输入企业归属地"
-                               autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                <button class="layui-btn" onclick="addCompany()">新增</button>
-            </div>
-        </div>
-    </form>
 
 
-    <!--    <table id="datalist" lay-filter="test"></table>-->
+
 
 </div>
 <br>
@@ -70,11 +43,15 @@
 <div class="demoTable">
     企业名称
     <div class="layui-inline">
-        <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+        <input class="layui-input" name="area" id="demoReload" autocomplete="off">
+    </div>
+    企业归属地
+    <div class="layui-inline">
+        <input class="layui-input" name="area" id="demoReload2" autocomplete="off">
     </div>
     <button class="layui-btn" data-type="reload">搜索</button>
 </div>
-
+<br>
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>

@@ -32,6 +32,7 @@ public class CompanyDao {
 		}
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		Query query = entityManager.createQuery(sql);
+
 		List list = query.getResultList();
 		Map result = new HashMap<>();
 		result.put("total", list.size());
