@@ -50,6 +50,7 @@
         <input class="layui-input" name="area" id="demoReload2" autocomplete="off">
     </div>
     <button class="layui-btn" data-type="reload">搜索</button>
+    <button type="layui-btn" class="layui-btn layui-btn-primary" onclick="reset()">重置</button>
 </div>
 <br>
 <script type="text/html" id="barDemo">
@@ -69,7 +70,7 @@
         table.render({
             elem: '#LAY_table_user'
             , url: '/data'
-            //,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
             , cols: [[
                 {field: 'name', title: '企业名称', fixed: 'left'}
                 , {field: 'area', title: '企业归属地',}
@@ -100,10 +101,8 @@
                         curr: 1 //重新从第 1 页开始
                     }
                     , where: {
-                        key: {
-                            id: demoReload.val()
-                        },
-                        id:1
+                        name: demoReload.val(),
+                        area: $('#demoReload2').val()
                     }
                 }, 'data');
             }
@@ -142,6 +141,11 @@ function del(id) {
 
         }
     });
+
+}
+function reset() {
+    $('#demoReload').val("");
+    $('#demoReload2').val("");
 
 }
 </script>

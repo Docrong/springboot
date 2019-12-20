@@ -23,6 +23,8 @@ public class CompanyDao {
 	public Map getCompanyList(Map maptj){
 		String name = (String) maptj.get("name");
 		String area = (String) maptj.get("area");
+		String page = String.valueOf(maptj.get("page"));
+		String limit = String.valueOf(maptj.get("limit"));
 		String sql = "from Company where 1=1";
 		if (name!=null&&!"".equals(name)) {
 			sql += " and name like '%" + name + "%'";
@@ -33,10 +35,18 @@ public class CompanyDao {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		Query query = entityManager.createQuery(sql);
 
+		if (!limit.equals("" )&& !"null".equals(limit)) {
+			query.setFirstResult(Integer.valueOf(limit) * (Integer.valueOf(page)-1));
+			query.setMaxResults(Integer.valueOf(limit));
+		}
+		Integer total=entityManager.createQuery(sql).getResultList().size();
+
 		List list = query.getResultList();
 		Map result = new HashMap<>();
-		result.put("total", list.size());
+		result.put("total", total);
 		result.put("result", list);
+		entityManager.close();
+
 		return result;
 	}
 }

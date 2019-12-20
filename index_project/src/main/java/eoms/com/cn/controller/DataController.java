@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,27 +27,29 @@ public class DataController {
 		System.out.println(request.getParameter("page"));
 		System.out.println(request.getParameter("limit"));//分页
 
-		JSONObject json = new JSONObject();
-		Map resultMap= new HashMap();
+		Map requestMap=request.getParameterMap();
+
+		String[] name = (String[]) requestMap.get("name");
+		String[] area = (String[]) requestMap.get("area");
+
 
 		Map maptj = new HashMap();
 		String page = request.getParameter("page");
 		String limit = request.getParameter("limit");
 
-		String name = request.getParameter("name");
-		String area = request.getParameter("area");
 
 		maptj.put("page", page);
 		maptj.put("limit", limit);
-		maptj.put("name", name);
-		maptj.put("area", area);
+		maptj.put("name", name!=null&&name.length>0?name[0]:"");
+		maptj.put("area", area!=null&&area.length>0?area[0]:"");
 
-		resultMap=service.getCompanyList(maptj);
+		Map resultMap=service.getCompanyList(maptj);
 
 
+		JSONObject json = new JSONObject();
 		json.put("data", resultMap.get("result"));
 		json.put("msg", "");
-		json.put("count", ((List)resultMap.get("result")).size());
+		json.put("count", ((Integer) resultMap.get("total")));
 		json.put("code", 0);
 
 		return json.toString();
