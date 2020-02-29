@@ -26,7 +26,7 @@ public class DepartmentAction {
 	@ResponseBody
 	public String test1(){
 		Department t = cacheService.getDepartmentById("1");
-		System.out.println(t);
+		System.out.println("result is :"+t);
 		return "test1";
 	}
 }
