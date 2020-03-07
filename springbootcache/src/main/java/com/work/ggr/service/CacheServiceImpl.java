@@ -6,6 +6,9 @@ import com.work.ggr.model.Department;
 import com.work.ggr.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,11 +32,17 @@ public class CacheServiceImpl {
 	public Employee getEmployeeById(String id){
 		return employeeRepository.findById(id);
 	}
+	@Cacheable(cacheNames = "emp",key ="#id")
+	public Employee getEmployeeById2(String id){
+		return employeeRepository.findById(id);
+	}
 
+	@CachePut(cacheNames = "emp",key="#t.id")
 	public void saveEmployee(Employee t) {
 		employeeRepository.save(t);
 	}
 
+	@CacheEvict(cacheNames = "emp",key = "#t.id")
 	public void deleteEmployee(Employee t) {
 		employeeRepository.delete(t);
 	}

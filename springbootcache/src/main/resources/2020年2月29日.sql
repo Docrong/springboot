@@ -1,3 +1,3 @@
 select * from department;
-
-commit;
+select * from employee;
+commit ;
