@@ -34,7 +34,7 @@ class RabbitmqSeverApplicationTests {
 	@Test
 	void p2pSend() {
 		String exchange = "exchange.direct";
-		String routingKey = "grRabbitEmps";
+		String routingKey = "rabbit";
 //		Message message=new Message();//需啊自己定义Message格式
 //		rabbitTemplate.send(exchange,routingKey,message);
 
@@ -42,13 +42,13 @@ class RabbitmqSeverApplicationTests {
 		map.put("id", "1");
 		map.put("name", "张三");
 		map.put("age", "12");
-
+//将map转换为Message,并发送到RabbitMQ
 		rabbitTemplate.convertAndSend(exchange, routingKey, map);
 	}
 
 	@Test
 	void p2preceived() {
-		Object o = rabbitTemplate.receiveAndConvert("grRabbitEmps");
+		Object o = rabbitTemplate.receiveAndConvert("rabbit");
 		System.out.println(o.getClass());
 		System.out.println(o);
 	}
@@ -63,7 +63,7 @@ class RabbitmqSeverApplicationTests {
 
 	@Test
 	void funoutReceived() {
-		Object o = rabbitTemplate.receiveAndConvert("grRabbitEmps");
+		Object o = rabbitTemplate.receiveAndConvert("rabbit");
 		System.out.println(o);
 	}
 

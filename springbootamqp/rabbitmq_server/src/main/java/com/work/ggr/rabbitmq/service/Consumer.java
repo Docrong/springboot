@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class Consumer {
-	@RabbitListener(queues = "grRabbit")
+	@RabbitListener(queues = "rabbit")
 	public void received (JSONObject json){
 		System.out.println("service 01 println:"+json);
 	}

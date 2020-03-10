@@ -30,8 +30,8 @@ public class Producer {
 		map.put("name", "张三");
 		map.put("age", "12");
 
-		rabbitTemplate.convertAndSend("exchange.direct","grRabbit",map);
-		rabbitTemplate.convertAndSend("exchange.topic","*.news",map);
+		rabbitTemplate.convertAndSend("exchange.direct","rabbit",map);
+//		rabbitTemplate.convertAndSend("exchange.topic","*.news",map);
 		return "o.toString()";
 	}
 }
