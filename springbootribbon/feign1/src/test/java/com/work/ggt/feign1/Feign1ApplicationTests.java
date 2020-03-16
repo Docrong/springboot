@@ -1,13 +1,13 @@
-package com.work.ggr.ribbon;
+package com.work.ggt.feign1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringbootribbonApplicationTests {
+class Feign1ApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
