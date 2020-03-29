@@ -84,7 +84,6 @@
 
     <modules>
 		<module>ribbon1</module>
-        <module>feign1</module>
 	</modules>
 
 </project>
