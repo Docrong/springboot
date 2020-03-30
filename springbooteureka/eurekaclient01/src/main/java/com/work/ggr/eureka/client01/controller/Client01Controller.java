@@ -12,18 +12,26 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class Client01Controller {
 
-    @Autowired
     private Client01Service service;
+
+    public Client01Controller() {
+    }
+
+    @Autowired
+    public Client01Controller(Client01Service service) {
+        this.service = service;
+    }
+
 
     @RequestMapping("/name/{msg}")
     @ResponseBody
-    public String name(@PathVariable(name = "msg") String msg){
-        return service.testFeign(msg);
+    public String name(@PathVariable(name = "msg") String msg) {
+        return service.sendMsg(msg);
     }
 
-    @RequestMapping(value = "/age",method = RequestMethod.GET)
+    @RequestMapping(value = "/age", method = RequestMethod.GET)
     @ResponseBody
     public String age(@RequestParam String age) {
-        return "client 01 age:"+age;
+        return service.sendAge(age);
     }
 }
