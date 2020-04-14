@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=s9p0lrFGnifSlhyEWfegVK5v5Ruwn4CW"></script>
+
+    <title>Baidu Map </title>
+    <style type="text/css">
+        html{height:100%}
+        body{height:100%;margin:0px;padding:0px}
+        #container{height:100%}
+    </style>
+</head>
+<body>
+<div id="container"></div>
+</body>
+<script>
+    var map = new BMap.Map("container");
+    var point = new BMap.Point(120.382029,30.312903);
+    map.centerAndZoom(point,9);
+    var marker = new BMap.Marker(point);
+    var mapPoints = [
+        {x:30.312903,y:120.382029,title:"A",con:"我是A",branch:"老大"},
+        {x:30.215855,y:120.024568,title:"B",con:"我是B",branch:"老二"},
+        {x:30.18015,y:120.174968,title:"C",con:"我是C",branch:"老三"},
+        {x:30.324994,y:120.164399,title:"D",con:"我是D",branch:"老四"},
+        {x:30.24884,y:120.305074,title:"E",con:"我是E",branch:"老五"}
+    ];
+    var i = 0;
+    map.addOverlay(marker);
+    map.enableScrollWheelZoom(true);
+    for (;i<mapPoints.length;i++) {
+        var points = new BMap.Point(mapPoints[i].y,mapPoints[i].x);//创建坐标点
+        var opts = {
+            width:250,
+            height: 100,
+            title:mapPoints[i].title
+        };
+        var label = new BMap.Label(mapPoints[i].branch,{
+            offset:new BMap.Size(25,5)
+        });
+        var infoWindows = new BMap.InfoWindow(mapPoints[i].con,opts);
+        markerFun(points,label,infoWindows);
+    }
+    // 函数 创建多个标注
+    function markerFun (points,label,infoWindows) {
+        var markers = new BMap.Marker(points);
+        map.addOverlay(markers);
+        markers.setLabel(label);
+        markers.addEventListener("click",function (event) {
+            console.log("0001");
+            map.openInfoWindow(infoWindows,points);//参数：窗口、点  根据点击的点出现对应的窗口
+        });
+    }
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <style type="text/css">
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+
+        #allmap {
+            height: 800px;
+            width: 100%;
+        }
+
+        #r-result {
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?type=webgl&v=1.0&ak=s9p0lrFGnifSlhyEWfegVK5v5Ruwn4CW"></script>
+    <script type="text/javascript" src="jquery-3.4.1.js"></script>
+    <title>添加/删除覆盖物</title>
+</head>
+<body>
+<div id="allmap"></div>
+<!--<div id="r-result">-->
+<!--    <input type="button" onclick="add_overlay();" value="添加覆盖物" />-->
+<!--    <input type="button" onclick="remove_overlay();" value="删除覆盖物" />-->
+<!--</div>-->
+
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMapGL.Map("allmap");
+    var point = new BMapGL.Point(114.277, 30.593);
+    map.centerAndZoom(point, 15);
+    map.setMapType(BMAP_EARTH_MAP);      // 设置地图类型为地球模式
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    var scaleCtrl = new BMapGL.ScaleControl();  // 添加比例尺控件
+    map.addControl(scaleCtrl);
+    var zoomCtrl = new BMapGL.ZoomControl();  // 添加比例尺控件
+    map.addControl(zoomCtrl);
+
+
+    var point2 = new BMapGL.Point(114.278, 30.592);
+    var point3 = new BMapGL.Point(114.279, 30.592);
+    var point4 = new BMapGL.Point(114.280, 30.592);
+    var marker = new BMapGL.Marker(point);        // 创建标注
+    var label = new BMapGL.Label("a1",{
+        // offset:new BMapGL.Size(25,5)
+    });
+    marker.setLabel(label);
+    map.addOverlay(marker);
+    map.addOverlay(new BMapGL.Marker(point2));
+    map.addOverlay(new BMapGL.Marker(point3));
+    map.addOverlay(new BMapGL.Marker(point4));
+
+    marker.addEventListener("click", function () {
+        $.ajax({
+            url: "/clickAjax",
+            method: 'post',
+            success: function (result) {
+                console.log(result);
+                console.log(JSON.parse(result))
+            }
+        });
+        map.openInfoWindow(infoWindow, point); //开启信息窗口
+        alert("您点击了标注");
+    });
+
+    var opts = {
+        width: marker.width,     // 信息窗口宽度
+        height: marker.height,     // 信息窗口高度
+        title: "用户:"  // 信息窗口标题
+    }
+    var infoWindow = new BMapGL.InfoWindow("10个", opts);  // 创建信息窗口对象
+    // map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
+</script>
