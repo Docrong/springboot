@@ -12,7 +12,7 @@
         }
 
         #allmap {
-            height: 800px;
+            height: 100%;
             width: 100%;
         }
 
@@ -27,10 +27,6 @@
 </head>
 <body>
 <div id="allmap"></div>
-<!--<div id="r-result">-->
-<!--    <input type="button" onclick="add_overlay();" value="添加覆盖物" />-->
-<!--    <input type="button" onclick="remove_overlay();" value="删除覆盖物" />-->
-<!--</div>-->
 
 </body>
 </html>
@@ -47,10 +43,11 @@
     var zoomCtrl = new BMapGL.ZoomControl();  // 添加比例尺控件
     map.addControl(zoomCtrl);
     var pointList
-    $.ajax({
+    /*$.ajax({
         url: "/clickAjax",
         method: 'post',
         success: function (result) {
+            console.log('clickAjax:' + result);
             pointList = JSON.parse(result);
             for (i = 0; i < pointList.length; i++) {
                 var perPoint = new BMapGL.Point(pointList[i].latitude, pointList[i].longitude);//创建坐标点
@@ -66,7 +63,7 @@
 
             }
         }
-    });
+    });*/
 
     // 函数 创建多个标注
     function markerFun(points, label, infoWindows) {
@@ -81,27 +78,17 @@
 
     //监听地图缩放级别
     map.addEventListener("zoomend", function (e) {
-        var ZoomNum = map.getZoom();
-        console.log(ZoomNum);
-        $.ajax({
-            url: '/listenZoom',
-            data: {'ZoomNum': ZoomNum},
-            method: 'POST',
-            success: function (result) {
-                console.log(result);
-                console.log(map.getBounds());
-
-            }
-
-        });
+        listenMap();
     });
 
     //监听拖动
     map.addEventListener("dragend", function (e) {
-        console.log(e);
+        listenMap();
+    });
+
+    function listenMap() {
+        var zoomNum = map.getZoom();
         var cp = map.getBounds();
-        console.log(cp.sw.lat + "," + cp.sw.lng);
-        console.log(cp.ne.lat + "," + cp.ne.lng);
         var fwJSON = new Object();
         fwJSON = {
             sw_lat: cp.sw.lat,
@@ -109,16 +96,15 @@
             ne_lat: cp.ne.lat,
             ne_lng: cp.ne.lng,
         }
-        console.log(fwJSON);
-
         $.ajax({
-            url: '/listenMapMove',
-            data: {'bounds': JSON.stringify(fwJSON)},
+            url: '/listenMap',
+            data: {'zoomNum': zoomNum,'bounds': JSON.stringify(fwJSON)},
+            method: 'POST',
             success: function (result) {
-                console.log(result);
+                console.log('listenMap'+result);
             }
-        });
-    });
 
+        });
+    }
 
 </script>

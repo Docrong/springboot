@@ -21,13 +21,13 @@ public class NetWorkElement {
     @GeneratedValue(generator = "system-uuid")
     @Column(name = "id", unique = true)
     private String id;
-    @Column(name = "name")
     //分光器名称
+    @Column(name = "name")
     private String name;
-    @Column(name = "longitute")
     //经度
-    private String Longitude;
-    @Column(name = "latitude")
+    @Column(name = "longitute")
+    private String longitude;
     //维度
-    private String Latitude;
+    @Column(name = "latitude")
+    private String latitude;
 }
