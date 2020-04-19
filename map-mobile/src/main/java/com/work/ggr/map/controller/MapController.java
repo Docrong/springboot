@@ -3,7 +3,6 @@ package com.work.ggr.map.controller;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.work.ggr.map.service.MapService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -77,27 +76,27 @@ public class MapController {
     public String clickAjax(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("enter Ajax");
         //114.278, 30.592
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>(3);
         map.put("name", "基站1");
         map.put("latitude", "114.278");
         map.put("longitude", "30.592");
 
-        Map<String, String> map1 = new HashMap();
+        Map<String, String> map1 = new HashMap<>(3);
         map1.put("name", "基站2");
         map1.put("latitude", "114.279");
         map1.put("longitude", "30.593");
 
-        Map<String, String> map2 = new HashMap();
+        Map<String, String> map2 = new HashMap<>(3);
         map2.put("name", "基站3");
         map2.put("latitude", "114.280");
         map2.put("longitude", "30.594");
 
-        Map<String, String> map3 = new HashMap();
+        Map<String, String> map3 = new HashMap<>(3);
         map3.put("name", "基站4");
         map3.put("latitude", "114.281");
         map3.put("longitude", "30.595");
 
-        Map<String, String> map4 = new HashMap();
+        Map<String, String> map4 = new HashMap<>(3);
         map4.put("name", "基站5");
         map4.put("latitude", "114.282");
         map4.put("longitude", "30.596");
@@ -121,7 +120,7 @@ public class MapController {
     @PersistenceContext
     EntityManager entityManager;
 
-    @Autowired
+    @Resource
     JdbcTemplate jdbcTemplate;
 
     @RequestMapping("/listenMap")
@@ -129,13 +128,20 @@ public class MapController {
     public String listenMap(HttpServletRequest request, HttpServletResponse response) {
         String zoomNum = request.getParameter("zoomNum");
         String bounds = request.getParameter("bounds");
-        Double zoomSize = Double.valueOf(zoomNum);
+        double zoomSize = Double.parseDouble(zoomNum);
         Gson gson = new Gson();
         System.out.println("边框:" + gson.fromJson(bounds, JsonObject.class));
         System.out.println("缩放比例:" + zoomNum);
 
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         JsonObject mapArea = gson.fromJson(bounds, JsonObject.class);
+        /*
+        ne:{lat: 30.61200232093338
+        lng: 114.34469962234249}
+        sw:{lat: 30.57396894840882
+        lng: 114.20930038000289
+        }
+        * */
         String swLat = mapArea.get("sw_lat").getAsString();
         String swLng = mapArea.get("sw_lng").getAsString();
         String neLat = mapArea.get("ne_lat").getAsString();
@@ -143,7 +149,11 @@ public class MapController {
 
         final int pageSize = 15;
         if (zoomSize > pageSize) {
-            List<Map<String, Object>> list1 = jdbcTemplate.queryForList("select * from mobile_networkelement where 1=1");
+            String sql = "select * from mobile_networkelement t where cast(t.longitude as DECIMAL (20,15))>" + swLng
+                    + " and cast(t.longitude as decimal (20,15))<" + neLng
+                    + " and cast(t.latitude as decimal (20,15))>" + swLat
+                    + " and cast(t.latitude as decimal (20,15))<" + neLat;
+            List<Map<String, Object>> list1 = jdbcTemplate.queryForList(sql);
             String json = gson.toJson(list1);
             list = list1;
         }

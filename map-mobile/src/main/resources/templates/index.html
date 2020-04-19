@@ -43,7 +43,7 @@
     var zoomCtrl = new BMapGL.ZoomControl();  // 添加比例尺控件
     map.addControl(zoomCtrl);
     var pointList
-    /*$.ajax({
+    $.ajax({
         url: "/clickAjax",
         method: 'post',
         success: function (result) {
@@ -63,7 +63,7 @@
 
             }
         }
-    });*/
+    });
 
     // 函数 创建多个标注
     function markerFun(points, label, infoWindows) {
@@ -90,6 +90,7 @@
         var zoomNum = map.getZoom();
         var cp = map.getBounds();
         var fwJSON = new Object();
+        console.log(cp);
         fwJSON = {
             sw_lat: cp.sw.lat,
             sw_lng: cp.sw.lng,
