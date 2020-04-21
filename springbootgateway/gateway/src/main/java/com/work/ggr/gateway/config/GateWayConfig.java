@@ -15,9 +15,19 @@ public class GateWayConfig {
     @Bean
     public RouteLocator routes(RouteLocatorBuilder routeLocatorBuilder) {
         RouteLocatorBuilder.Builder routes = routeLocatorBuilder.routes();
+//        id类似于数据库主键
+/*
         routes
-                .route("client01", predicateSpec -> predicateSpec.path("/name/**").uri("http://localhost:8086"))
-                .route("client02", predicateSpec -> predicateSpec.path("/age/**").uri("http://localhost:8087"))
+                .route("routeClient01", predicateSpec -> predicateSpec.path("/name/**").uri("http://localhost:8086"))
+                .route("routeClient02", predicateSpec -> predicateSpec.path("/age/**").uri("http://localhost:8087"))
+                .build();
+*/
+/*
+*通过微服务名实现动态路由,uri的协议为lb,表示启动gateWay的负载均衡
+*/
+        routes
+                .route("route3", predicateSpec -> predicateSpec.path("/name/**").uri("lb://eurekaclient"))
+                .route("route4", predicateSpec -> predicateSpec.path("/age/**").uri("lb://eurekaclient2"))
                 .build();
         return routes.build();
     }
