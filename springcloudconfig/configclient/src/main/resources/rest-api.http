@@ -1,0 +1,21 @@
+### 服务端
+GET http://localhost:8060/master/configTest-pro.properties
+Accept: application/json
+
+###客户端
+GET http://localhost:8062/hello?name=lisi
+
+###客户端刷新配置,使用POST请求
+POST http://localhost:8062/actuator/refresh
+Accept: application/json
+###actuator信息
+GET http://localhost:8062/actuator/info
+###actuator检查运行状态
+GET http://localhost:8062/actuator/health
+
+###刷新消息总线,默认使用springCloudBus,刷新之后客户端获取新的配置的值
+POST http://localhost:8062/actuator/bus-refresh
+
+### 刷新消息总线,但是只刷新指定的客户端 ,格式为: http://服务端端口/actuator/bus-refresh/{destination}
+### {distinction}为具体的服务,对应eureka上 服务名:端口号 如 config_clinet1:8062
+POST http://localhost:8062/actuator/bus-refresh/config_client1:8062

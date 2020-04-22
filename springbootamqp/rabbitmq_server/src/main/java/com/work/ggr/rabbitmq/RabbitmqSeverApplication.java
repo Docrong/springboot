@@ -10,8 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 2. rabbitTemplate     rabbitmq发送和接收消息
  * 3. amqpAdmin     rabbitmq系统管理组件,创建和删除exchange,queue,bind关联关系
  * 4. rabbitMessagingTemplate
+ * @author gr
+ * //开启基于注解的rabbitmq
  */
-@EnableRabbit //开启基于注解的rabbitmq
+@EnableRabbit
 @SpringBootApplication
 public class RabbitmqSeverApplication {
 

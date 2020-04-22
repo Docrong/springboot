@@ -71,4 +71,8 @@
 		</plugins>
 	</build>
 
+	<modules>
+		<module>configclient</module>
+		<module>configserver</module>
+	</modules>
 </project>
