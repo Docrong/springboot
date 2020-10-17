@@ -17,4 +17,5 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
     Person findById(String id);
 
     List<Person> findByUsernameAndAddress(String username, String address);
+
 }

@@ -72,12 +72,14 @@ public class PersonServiceImpl {
 //        System.out.println("(^・ω・^ )( ^・ω・^)(^・ω・^ )( ^・ω・^)");
 //        p.setPhone(new Date().toString());
 //        personRepository.save(p);
-        Person p2 = new Person();
 
+        Person p2 = new Person();
         p2.setPhone("数据库1");
         p2.setUsername("ggr");
         p2.setCreated(new Date().toString());
-        personRepository.save(p2);
+        Person savePerson = personRepository.save(p2);
+        System.out.println(savePerson.getId());
+
         return null;
     }
 }

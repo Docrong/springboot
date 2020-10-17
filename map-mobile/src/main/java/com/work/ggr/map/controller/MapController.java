@@ -77,27 +77,27 @@ public class MapController {
         System.out.println("enter Ajax");
         //114.278, 30.592
         Map<String, String> map = new HashMap<>(3);
-        map.put("name", "基站1");
+        map.put("name", "**小区1号箱    端口:8  已用:3   可用:5");
         map.put("latitude", "114.278");
         map.put("longitude", "30.592");
 
         Map<String, String> map1 = new HashMap<>(3);
-        map1.put("name", "基站2");
+        map1.put("name", "**小区3号箱    端口:8  已用:3   可用:5");
         map1.put("latitude", "114.279");
         map1.put("longitude", "30.593");
 
         Map<String, String> map2 = new HashMap<>(3);
-        map2.put("name", "基站3");
+        map2.put("name", "**小区4号箱    端口:8  已用:3   可用:5");
         map2.put("latitude", "114.280");
         map2.put("longitude", "30.594");
 
         Map<String, String> map3 = new HashMap<>(3);
-        map3.put("name", "基站4");
+        map3.put("name", "**小区4号箱    端口:8  已用:3   可用:5");
         map3.put("latitude", "114.281");
         map3.put("longitude", "30.595");
 
         Map<String, String> map4 = new HashMap<>(3);
-        map4.put("name", "基站5");
+        map4.put("name", "**小区5号箱    端口:8  已用:3   可用:5");
         map4.put("latitude", "114.282");
         map4.put("longitude", "30.596");
         List<Map<String, String>> list = new ArrayList<>();
