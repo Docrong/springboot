@@ -2,6 +2,7 @@ package com.work.ggr.nacosfeign.controller;
 
 import com.work.ggr.nacosfeign.feign.NacosConsumerFeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -16,7 +17,7 @@ public class NacosConsumerFeignController {
     private NacosConsumerFeignClient client;
 
     @RequestMapping("/getMessage")
-    public String getMessSage() {
-        return client.getMessage();
+    public String getMessSage(@RequestParam(required = false, value = "msg") String msg) {
+        return client.getMessage(msg);
     }
 }
