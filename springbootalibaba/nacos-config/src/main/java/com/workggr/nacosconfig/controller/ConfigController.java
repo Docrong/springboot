@@ -12,16 +12,27 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/config")
-public class NacosConfigController {
+@RefreshScope
+public class ConfigController {
+
+    @Value("${useLocalCache}")
+    private boolean useLocalCache;
+
+    /**
+     * http://localhost:8080/config/get
+     */
+    @RequestMapping("/get")
+    public boolean get() {
+        return useLocalCache;
+    }
+
     @Value("${spring.redis.port}")
     private String port;
-    @NacosValue(value = "${spring.redis.port}", autoRefreshed = true)
-    private String port2;
 
-    @RequestMapping("/getMessage")
-    public String getMessage() {
-        System.out.println(port+"------"+port2);
+    @RequestMapping("/getPort")
+    public String getPort() {
         return port;
     }
+
 
 }
