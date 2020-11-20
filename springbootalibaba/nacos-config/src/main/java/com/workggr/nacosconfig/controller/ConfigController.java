@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class ConfigController {
 
-    @Value("${useLocalCache}")
+    @Value("${useLocalCache:false}")
     private boolean useLocalCache;
 
     /**
@@ -29,9 +29,11 @@ public class ConfigController {
     @Value("${spring.redis.port}")
     private String port;
 
+    private String port2;
+
     @RequestMapping("/getPort")
     public String getPort() {
-        return port;
+        return port + port2;
     }
 
 
