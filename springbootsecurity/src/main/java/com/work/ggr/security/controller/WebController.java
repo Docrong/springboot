@@ -17,6 +17,11 @@ public class WebController {
      *
      * @return
      */
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "welcome";
+    }
+
     @GetMapping("/")
     public String index() {
         return "welcome";

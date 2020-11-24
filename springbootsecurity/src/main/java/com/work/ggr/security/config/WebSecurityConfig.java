@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/level3/**").hasRole("VIP3").and();
         // 开启自动配置的登录功能,
 //        http.formLogin();
-        http.formLogin().usernameParameter("user").passwordParameter("pwd").loginPage("/userlogin").successForwardUrl("/welcome").and();
+        http.formLogin().usernameParameter("user").passwordParameter("pwd").loginPage("/userlogin").defaultSuccessUrl("/welcome").and();
         //加入记住我
         http.rememberMe().rememberMeParameter("remember");
         // 开启自动配置的注销功能，如果注销成功返回“/”页
